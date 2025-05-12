@@ -4,10 +4,14 @@ import me.zephrynis.mkcosmetic.Mkcosmetic;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scheduler.BukkitTask;
 
 public class MyFirstCosmetic extends Cosmetic {
+
+    BukkitTask task;
+
     public MyFirstCosmetic(Player player) {
         super(player);
     }
@@ -15,11 +19,10 @@ public class MyFirstCosmetic extends Cosmetic {
 
     @Override
     public void start() {
-
-        Bukkit.getServer().getScheduler().runTaskTimerAsynchronously(
+        task = Bukkit.getServer().getScheduler().runTaskTimerAsynchronously(
                 Mkcosmetic.getInstance(),
                 () -> {
-                    player.getWorld().spawnParticle(org.bukkit.Particle.HEART, player.getLocation(), 10);
+                    player.getWorld().spawnParticle(Particle.HEART, player.getLocation(), 10);
                 },
                 20L,
                 0L
@@ -33,7 +36,7 @@ public class MyFirstCosmetic extends Cosmetic {
 
     @Override
     public void destroy() {
-
+        task.cancel();
     }
 
     @Override
