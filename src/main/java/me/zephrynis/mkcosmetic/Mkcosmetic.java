@@ -10,6 +10,10 @@ public final class Mkcosmetic extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
     }
 
+    public static Mkcosmetic getInstance() {
+        return getPlugin(Mkcosmetic.class);
+    }
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
