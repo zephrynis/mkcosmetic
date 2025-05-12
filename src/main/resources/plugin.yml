@@ -1,0 +1,6 @@
+name: mkcosmetic
+version: '1.0-SNAPSHOT'
+main: me.zephrynis.mkcosmetic.Mkcosmetic
+api-version: '1.21'
+authors: [ Zephrynis ]
+website: https://zephrynis.me/
